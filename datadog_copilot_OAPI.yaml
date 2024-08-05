@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  title: Datadog Events API
+  version: 1.0.0
+servers:
+  - url: https://api.us3.datadoghq.com/
+paths:
+  /api/v2/events:
+    get:
+      summary: Get events
+      operationId: getEvents
+      parameters:
+        - in: header
+          required: true
+          name: DD-APPLICATION-KEY
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
