@@ -1,0 +1,17 @@
+Descriptor:
+  Name: DataDog Plugin for SecurityCopilot
+  DisplayName: DataDog Plugin for SecurityCopilot
+  Description: Plugin Test for DataDog --> SecurityCopilot
+  DescriptionForModel: The skills in this plugin will get information from DataDog including Duo authentication events, CAS login events, Office365 data, and more. 
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: x-functions-key
+    Location: Header
+    AuthScheme: ''
+ 
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: 
