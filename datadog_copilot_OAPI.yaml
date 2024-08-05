@@ -5,11 +5,17 @@ info:
 servers:
   - url: https://api.us3.datadoghq.com/
 paths:
-  /api/v2/events:
+  /api/v2/events/{eventid}:
     get:
       summary: Get events
       operationId: getEvents
       parameters:
+        - in: path
+          name: eventid
+          schema:
+            type: string
+          required: true
+          description: ID of the Event
         - in: header
           required: true
           name: DD-APPLICATION-KEY
