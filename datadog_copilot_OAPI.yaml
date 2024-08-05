@@ -15,6 +15,12 @@ paths:
           name: DD-APPLICATION-KEY
           schema:
             type: string
+        - in: header
+          name: Accept
+          schema:
+            type: string
+          required: true
+          description: Default is application/json  
       responses:
         '200':
           description: Successful response
