@@ -49,3 +49,61 @@ paths:
       responses:
         '200':
           description: Successful response
+  /api/v2/logs/events/search:
+    post:
+      summary: Search logs events
+      operationId: searchLogsEvents
+      parameters:
+        - in: header
+          required: true
+          name: DD-APPLICATION-KEY
+          schema:
+            type: string
+        - in: header
+          required: true
+          name: DD-API-KEY
+          schema:
+            type: string
+        - in: header
+          name: Content-Type
+          schema:
+            type: string
+          required: true
+          description: Default is application/json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  properties:
+                    query:
+                      type: string
+                      description: The search query - see Datadog Logs Search Syntax documentation for details
+                    from:
+                      type: string
+                      description: The start time for the query as an ISO 8601 datetime string
+                    to:
+                      type: string
+                      description: The end time for the query as an ISO 8601 datetime string
+                page:
+                  type: object
+                  properties:
+                    limit:
+                      type: integer
+                      description: Maximum number of logs returned
+                    cursor:
+                      type: string
+                      description: Cursor for paginating through results
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
